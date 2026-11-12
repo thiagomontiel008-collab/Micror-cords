@@ -1,0 +1,91 @@
+body {  
+  position: relative; 
+    
+    /* Ocupar toda la ventana */
+    width: 100vw; 
+    height: 100vh;
+    
+    /* Evita barras de desplazamiento si el cuadrado se mueve fuera del borde */
+    overflow: hidden; 
+    
+    /* Estilo de fondo (opcional) */
+    background-color: #20232a; 
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: white; /* Hace que el texto del enlace sea blanco */
+}
+
+#rostro {
+    position: relative; 
+    width: 400px; /* Ancho total del área de los ojos */
+    height: 200px;
+    margin: 150px auto; /* Centra el 'rostro' en la pantalla */
+    /* background-color: #333; /* Descomenta para ver el área */
+}
+/* Estilo base para ambos ojos */
+.ojo {
+    position: absolute;
+    width: 150px; 
+    height: 150px; 
+    background-color: white;
+    border-radius: 50%; 
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid #61dafb;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(97, 218, 251, 0.6);
+}
+/* Posicionamiento de cada ojo */
+#ojo-izquierdo {
+    left: 0; 
+}
+#ojo-derecho {
+    right: 0; 
+}
+
+#mostrarmicrojuego,
+#Perder {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 1000;
+}
+
+#Ganar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 1000;
+}
+
+#Texto {
+    position: absolute; /* Posicionamiento relativo al contenedor */
+    top: 62%;           /* Centrado vertical */
+    left: 50%;          /* Centrado horizontal */
+    transform: translate(-50%, -50%); /* Ajuste fino para centrar exactamente */
+    color: #8527d1;       /* Color del texto */
+    font-size: 60px;    /* Tamaño de la letra */
+    z-index: 1200;
+    background-color: bisque;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+#mostrarmicrojuego {
+    display: block;
+}
+
+#Texto {
+    z-index: 1200;
+}

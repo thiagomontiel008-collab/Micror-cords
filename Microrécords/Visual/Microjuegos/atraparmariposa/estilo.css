@@ -1,0 +1,78 @@
+/* Estilo para el cuerpo (contenedor por defecto) */
+body {
+    /* * ¡CRUCIAL! Define el área de movimiento.
+     * position: relative; es necesario para que el cuadrado 
+     * se posicione de forma absoluta dentro de él. 
+     */
+    position: relative; 
+    
+    /* Ocupar toda la ventana */
+    width: 100vw; 
+    height: 100vh;
+    
+    /* Evita barras de desplazamiento si el cuadrado se mueve fuera del borde */
+    overflow: hidden; 
+    
+    /* Estilo de fondo (opcional) */
+    background: url("../../../Recursos/Microjuegos/Atrapara_mariposa/fondo%20mariposa.jpg");
+     background-size: cover;      
+    background-position: center; 
+    background-repeat: no-repeat;
+    
+}
+
+#Mariposa {
+    background: url("../../../Recursos/Microjuegos/Atrapara_mariposa/66dcb8453fbb82a96a9a227fa52ed6fb-mariposa-con-alas-azules-y-rosas%20(1).webp");
+    background-size: cover;      
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+a {
+    color: white; /* Hace que el texto del enlace sea blanco */
+    font-size: 48px;
+}
+
+#mostrarmicrojuego,
+#Perder {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 1000;
+}
+
+#Ganar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 1000;
+}
+
+#Texto {
+    position: absolute; /* Posicionamiento relativo al contenedor */
+    top: 80%;           /* Centrado vertical */
+    left: 50%;          /* Centrado horizontal */
+    transform: translate(-50%, -50%); /* Ajuste fino para centrar exactamente */
+    color: #8527d1;       /* Color del texto */
+    font-size: 60px;    /* Tamaño de la letra */
+    z-index: 1200;
+    background-color: bisque;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+#mostrarmicrojuego {
+    display: block;
+}
+
+#Texto {
+    z-index: 1200;
+}

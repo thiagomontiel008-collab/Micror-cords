@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Come la pizza!</title>
+  <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="../Global/temporizador.css?v=5">
+</head>
+<body>
+  <main id="juego" class="juego">
+    <svg id="pizza" class="pizza" viewBox="0 0 300 300" role="group" aria-label="Pizza de ocho rebanadas">
+      <path class="rebanada tono-1" data-rebanada="1" role="button" tabindex="0" aria-label="Comer rebanada 1" d="M150 150 L106.2 29.9 A130 130 0 0 1 193.8 29.9 Z"/>
+      <path class="rebanada tono-2" data-rebanada="2" role="button" tabindex="0" aria-label="Comer rebanada 2" d="M150 150 L193.8 29.9 A130 130 0 0 1 270.1 106.2 Z"/>
+      <path class="rebanada tono-1" data-rebanada="3" role="button" tabindex="0" aria-label="Comer rebanada 3" d="M150 150 L270.1 106.2 A130 130 0 0 1 270.1 193.8 Z"/>
+      <path class="rebanada tono-2" data-rebanada="4" role="button" tabindex="0" aria-label="Comer rebanada 4" d="M150 150 L270.1 193.8 A130 130 0 0 1 193.8 270.1 Z"/>
+      <path class="rebanada tono-1" data-rebanada="5" role="button" tabindex="0" aria-label="Comer rebanada 5" d="M150 150 L193.8 270.1 A130 130 0 0 1 106.2 270.1 Z"/>
+      <path class="rebanada tono-2" data-rebanada="6" role="button" tabindex="0" aria-label="Comer rebanada 6" d="M150 150 L106.2 270.1 A130 130 0 0 1 29.9 193.8 Z"/>
+      <path class="rebanada tono-1" data-rebanada="7" role="button" tabindex="0" aria-label="Comer rebanada 7" d="M150 150 L29.9 193.8 A130 130 0 0 1 29.9 106.2 Z"/>
+      <path class="rebanada tono-2" data-rebanada="8" role="button" tabindex="0" aria-label="Comer rebanada 8" d="M150 150 L29.9 106.2 A130 130 0 0 1 106.2 29.9 Z"/>
+    </svg>
+  </main>
+  <div class="Contienevideo">
+    <video id="mostrarmicrojuego" src="../../../Recursos/Microjuegos/Global/streve%20corriendo.mp4" autoplay muted playsinline></video>
+    <div id="Texto">¡Come la pizza!</div>
+  </div>
+  <video id="Perder" src="../../../Recursos/Microjuegos/Global/streve%20tropezando.mp4" muted playsinline></video>
+  <img id="Ganar" src="../../../Recursos/Microjuegos/Global/confetti-25%20(1).jpg" alt="¡Ganaste!">
+  <div id="temporizador-mecha" class="temporizador-mecha" role="img" aria-label="Reloj del tiempo de juego">
+    <div class="mecha">
+      <span class="tramo-mecha tramo-1"></span>
+      <span class="tramo-mecha tramo-2"></span>
+      <span class="tramo-mecha tramo-3"></span>
+    </div>
+    <div class="reloj">
+      <span class="manecilla manecilla-minuto"></span>
+      <span class="manecilla manecilla-segundo"></span>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

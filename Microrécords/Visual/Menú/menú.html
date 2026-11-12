@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Microrécords</title>
+  <link rel="stylesheet" href="estilo.css?v=14" />
+</head>
+<body>
+  <!-- Pantalla de inicio -->
+  <div id="estart" class="pantalla">
+    <div class="botones-superiores">
+      <button type="button" id="cuenta-boton" class="boton-circular boton-cuenta" aria-label="Cuenta" title="Cuenta">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.1 0-7.5 2.1-7.5 4.7V21h15v-2.3c0-2.6-3.4-4.7-7.5-4.7Z" />
+        </svg>
+      </button>
+      <button type="button" id="logros-boton" class="boton-circular boton-logros" aria-label="Logros" title="Logros">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 3h10v3h3v3a5 5 0 0 1-4.1 4.9A5 5 0 0 1 13 16v2h4v3H7v-3h4v-2a5 5 0 0 1-2.9-3.1A5 5 0 0 1 4 9V6h3zm10 5v3.7A2 2 0 0 0 18 9V8zM6 8v1a2 2 0 0 0 1 1.7V8z" />
+        </svg>
+      </button>
+    </div>
+    <div id="logo-secreto" class="logo-secreto">
+      <img id="logo" src="../../Recursos/Menú/logomejor.png" alt="Microrécords">
+      <span class="hueco-d" aria-hidden="true"></span>
+      <img
+        id="d-arrastrable"
+        src="../../Recursos/Menú/d.png"
+        alt="Letra d arrastrable"
+        draggable="false"
+        tabindex="0"
+      >
+    </div>
+    <span id="zona-secreta" class="zona-secreta" aria-hidden="true">
+      <svg class="monticulo-secreto" viewBox="0 0 220 100" aria-hidden="true">
+        <path d="M8 92c8-30 30-45 54-45 13-27 43-39 67-28 25-8 54 7 61 34 14 7 21 21 22 39H8Z"/>
+        <path d="M43 75c15-12 28-15 42-14m42-20c13-7 26-7 38-2m-5 25 25-5" />
+      </svg>
+    </span>
+    <div id="notificaciones-logros" class="notificaciones-logros" aria-live="polite" aria-atomic="true"></div>
+    <span id="mensaje-secreto" class="Y-la-pantalla" role="status" aria-live="polite"></span>
+    
+    <!-- Botón para comenzar a jugar -->
+    <div class="botones-inicio">
+      <button id="jugar-boton">Jugar</button>
+      <button type="button" id="tabla-posiciones-boton" class="boton-tabla-posiciones" aria-label="Tabla de posiciones" title="Tabla de posiciones">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 4h14v2H5zm0 5h9v2H5zm0 5h14v2H5zm0 5h9v2H5zM17 8h2v4h-2zm0 10h2v4h-2z" />
+        </svg>
+        Tabla de posiciones
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Logros disponibles (presentación estática) -->
+  <section id="pantalla-logros" class="pantalla Y-la-pantalla" aria-labelledby="logros-titulo">
+    <div class="panel-menu logros-card">
+      <h1 id="logros-titulo">Logros</h1>
+      <p class="panel-descripcion">Desafíos disponibles y sus criterios de desbloqueo.</p>
+      <div class="logros-lista">
+        <article class="logro-item" data-logro-id="primeros_pasos">
+          <div class="logro-icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M7 3h10v3h3v3a5 5 0 0 1-4.1 4.9A5 5 0 0 1 13 16v2h4v3H7v-3h4v-2a5 5 0 0 1-2.9-3.1A5 5 0 0 1 4 9V6h3zm10 5v3.7A2 2 0 0 0 18 9V8zM6 8v1a2 2 0 0 0 1 1.7V8z" /></svg>
+          </div>
+          <div><h2>Primeros pasos</h2><p>Juega tres microjuegos en total.</p></div>
+          <span class="logro-indicador" role="img" aria-label="No desbloqueado" title="No desbloqueado"></span>
+        </article>
+        <article class="logro-item" data-logro-id="segundos_pasos">
+          <div class="logro-icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2 14.8 8l6.5.8-4.8 4.5 1.3 6.4L12 16.4l-5.8 3.3 1.3-6.4-4.8-4.5L9.2 8z" /></svg>
+          </div>
+          <div><h2>Segundos pasos</h2><p>Juega 20 microjuegos en total.</p></div>
+          <span class="logro-indicador" role="img" aria-label="No desbloqueado" title="No desbloqueado"></span>
+        </article>
+        <article class="logro-item" data-logro-id="demasiados_pasos">
+          <div class="logro-icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.1 0-7.5 2.1-7.5 4.7V21h15v-2.3c0-2.6-3.4-4.7-7.5-4.7Z" /></svg>
+          </div>
+          <div><h2>Demasiados pasos</h2><p>Juega 100 microjuegos en total.</p></div>
+          <span class="logro-indicador" role="img" aria-label="No desbloqueado" title="No desbloqueado"></span>
+        </article>
+        <article class="logro-item" data-logro-id="todos_son_mios">
+          <div class="logro-icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16v2H4zm2 4h12v2H6zm-2 4h16v2H4zm2 4h12v2H6zm-2 4h16v2H4z" /></svg>
+          </div>
+          <div><h2>¡Todos son míos!</h2><p>Juega todos los microjuegos una vez.</p></div>
+          <span class="logro-indicador" role="img" aria-label="No desbloqueado" title="No desbloqueado"></span>
+        </article>
+        <article class="logro-item" data-logro-id="supremitis_aguda">
+          <div class="logro-icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.1 0-7.5 2.1-7.5 4.7V21h15v-2.3c0-2.6-3.4-4.7-7.5-4.7Z" /></svg>
+          </div>
+          <div><h2>Supremitis aguda</h2><p>Llega al puesto 1 al menos una vez.</p></div>
+          <span class="logro-indicador" role="img" aria-label="No desbloqueado" title="No desbloqueado"></span>
+        </article>
+        <article class="logro-item" data-logro-id="desenterrando_secretos" hidden>
+          <div class="logro-icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2v8.2l2.4 2.4a2 2 0 0 1 0 2.8l-1.4 1.4-1.4-1.4 1.4-1.4-2.4-2.4V22h-2v-9.2l-2.4 2.4 1.4 1.4-1.4 1.4-1.4-1.4a2 2 0 0 1 0-2.8L10 12.2V4a2 2 0 0 1 2-2Z"/></svg>
+          </div>
+          <div><h2>Desenterrando secretos</h2><p>Encuentra el minijuego secreto.</p></div>
+          <span class="logro-indicador" role="img" aria-label="No desbloqueado" title="No desbloqueado"></span>
+        </article>
+      </div>
+      <button type="button" id="volver-menu-logros-boton" class="boton-secundario">Volver al menú</button>
+    </div>
+  </section>
+
+  <!-- Pantalla de Autenticación dentro de la misma página (Iniciar Sesión / Registrarse) -->
+  <div id="pantalla-auth" class="pantalla Y-la-pantalla">
+    <div class="auth-card">
+      <h2 id="auth-titulo">Iniciar Sesión</h2>
+
+      <!-- Pestañas para alternar entre Iniciar Sesión y Registro -->
+      <div class="auth-tabs">
+        <button type="button" id="tab-login" class="tab-boton activa">Iniciar Sesión</button>
+        <button type="button" id="tab-registro" class="tab-boton">Registrarse</button>
+      </div>
+
+      <!-- Formulario de Iniciar Sesión -->
+      <form id="form-login" class="auth-formulario">
+        <div class="grupo-campo">
+          <label for="login-usuario">Nombre de Usuario</label>
+          <input type="text" id="login-usuario" placeholder="Ingresa tu usuario" required autocomplete="username" />
+        </div>
+        <div class="grupo-campo">
+          <label for="login-password">Contraseña</label>
+          <input type="password" id="login-password" placeholder="Ingresa tu contraseña" required autocomplete="current-password" />
+        </div>
+        <button type="submit" id="btn-login-submit" class="boton-accion">Entrar</button>
+      </form>
+
+      <!-- Formulario de Registrarse -->
+      <form id="form-registro" class="auth-formulario Y-la-pantalla">
+        <div class="grupo-campo">
+          <label for="registro-usuario">Nuevo Nombre de Usuario</label>
+          <input type="text" id="registro-usuario" placeholder="Elige tu nombre de usuario" required autocomplete="username" />
+        </div>
+        <div class="grupo-campo">
+          <label for="registro-password">Contraseña</label>
+          <input type="password" id="registro-password" placeholder="Mínimo 4 caracteres" required autocomplete="new-password" />
+        </div>
+        <button type="submit" id="btn-registro-submit" class="boton-accion">Crear Cuenta</button>
+      </form>
+
+      <!-- Contenedor para mensajes de error o confirmación -->
+      <div id="auth-mensaje" class="auth-mensaje Y-la-pantalla"></div>
+
+      <!-- Botón para regresar al menú de inicio -->
+      <button type="button" id="volver-menu-auth-boton" class="boton-secundario">Volver al Menú</button>
+    </div>
+  </div>
+
+  <!-- Pantalla de Cuenta con datos del usuario -->
+  <div id="pantalla-cuenta" class="pantalla Y-la-pantalla">
+    <div class="cuenta-card">
+      <h2>Mi cuenta</h2>
+      <p class="saludo-cuenta"><strong id="cuenta-nombre-usuario">Jugador</strong></p>
+
+      <div class="acciones-cuenta">
+        <!-- Cerrar sesión conserva la cuenta y sus datos. -->
+        <button type="button" id="cerrar-sesion-boton" class="boton-cerrar-sesion">Cerrar Sesión</button>
+        
+        <button type="button" id="eliminar-cuenta-boton" class="boton-eliminar-cuenta" aria-describedby="aviso-eliminar-cuenta">Eliminar cuenta</button>
+      </div>
+    </div>
+
+    <!-- Botón en la esquina inferior derecha requerido -->
+    <button type="button" id="boton-esquina-derecha" class="boton-esquina-derecha">Volver</button>
+  </div>
+
+  <!-- Tabla de posiciones -->
+  <div id="pantalla-posiciones" class="pantalla Y-la-pantalla">
+    <div class="auth-card tabla-posiciones-card">
+      <div id="tabla-posiciones-vista">
+        <h2>Tabla de posiciones</h2>
+        <p id="tabla-posiciones-mensaje" role="status">Cargando posiciones...</p>
+        <table class="tabla-posiciones">
+          <thead>
+            <tr>
+              <th>Puesto</th>
+              <th>Jugador</th>
+              <th>Récord</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-posiciones-cuerpo"></tbody>
+        </table>
+      </div>
+      <section id="detalle-cuenta-posiciones" class="Y-la-pantalla" aria-labelledby="detalle-cuenta-titulo">
+        <h2 id="detalle-cuenta-titulo">Cuenta</h2>
+        <p id="detalle-cuenta-mensaje" role="status"></p>
+        <div id="detalle-cuenta-contenido" class="Y-la-pantalla">
+          <div class="cuenta-detalles">
+            <div class="detalle-item">
+              <span class="detalle-etiqueta">Nombre:</span>
+              <span id="detalle-cuenta-nombre" class="detalle-valor"></span>
+            </div>
+            <div class="detalle-item">
+              <span class="detalle-etiqueta">Puntuación máxima:</span>
+              <span id="detalle-cuenta-puntuacion" class="detalle-valor puntuacion-destacada"></span>
+            </div>
+          </div>
+          <div class="cuenta-logros-publicos">
+            <h3>Logros conseguidos</h3>
+            <div id="detalle-cuenta-logros" class="logros-lista"></div>
+          </div>
+        </div>
+        <button type="button" id="volver-tabla-posiciones-boton" class="boton-secundario">Volver a la tabla</button>
+      </section>
+      <button type="button" id="volver-menu-posiciones-boton" class="boton-secundario">Volver al menú</button>
+    </div>
+  </div>
+
+  <!-- Pantalla de Introducción -->
+  <div id="introducción" class="Y-la-pantalla">
+    <button type="button" id="volver-menu-cinematica-boton" class="boton-volver-cinematica">Volver</button>
+    <img id="intro-imagen" src="../../Recursos/Menú/cinemática.jpg" alt="Imagen de Introducción">
+    <button id="empezar-juego-boton" class="Y-la-pantalla">Empezar</button>
+  </div>
+
+  <audio id="musica" src="../../Recursos/Menú/menú principal microrécords.mp3"></audio>
+
+  <footer style="position: fixed; bottom: 0; left: 0; width: 100%; background: #222; color: white; text-align: center; padding: 10px 0; font-family: sans-serif;">
+    © 2025 Microrécords. Todos los derechos reservados.
+  </footer>
+
+  <script src="script.js?v=16"></script>
+</body>
+</html>

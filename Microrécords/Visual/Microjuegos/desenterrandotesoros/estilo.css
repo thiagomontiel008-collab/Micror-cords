@@ -1,0 +1,300 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, #263d3d 0%, #496258 42%, #49382c 43%, #261e1b 100%);
+}
+
+.recursos-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.juego {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.luna {
+  position: absolute;
+  top: 9%;
+  right: 14%;
+  width: clamp(44px, 7vw, 82px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #e6d9a8;
+  box-shadow: 0 0 38px #e6d9a866;
+}
+
+.colinas {
+  position: absolute;
+  right: -10%;
+  bottom: 47%;
+  left: -10%;
+  height: 23%;
+  border-radius: 50% 50% 0 0 / 42% 42% 0 0;
+  background: linear-gradient(180deg, #526756, #34473d);
+}
+
+.suelo {
+  position: absolute;
+  right: -12%;
+  bottom: -16%;
+  left: -12%;
+  height: 67%;
+  border-top: 9px solid #71805a;
+  border-radius: 50% 50% 0 0 / 10% 10% 0 0;
+  background:
+    radial-gradient(ellipse at 18% 24%, #93714a 0 2px, transparent 3px),
+    radial-gradient(ellipse at 74% 40%, #93714a 0 2px, transparent 3px),
+    radial-gradient(ellipse at 48% 65%, #382a22 0 2px, transparent 3px),
+    linear-gradient(180deg, #624a35, #332720 85%);
+  background-size: 87px 71px, 113px 97px, 79px 83px, auto;
+  box-shadow: 0 -18px 34px #1a251e77;
+}
+
+.rondas {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  gap: 14px;
+  transform: translateX(-50%);
+}
+
+.ronda {
+  width: 15px;
+  height: 15px;
+  border: 2px solid #dac89d;
+  border-radius: 50%;
+  background: #312820;
+  box-shadow: 0 2px 6px #171411;
+}
+
+.ronda.encontrada {
+  border-color: #ffe28a;
+  background: #e0a834;
+  box-shadow: 0 0 12px #f6c552aa;
+}
+
+.excavaciones {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 7vw, 100px);
+  width: min(78vw, 760px);
+  transform: translate(-50%, -50%);
+}
+
+.sitio {
+  position: relative;
+  display: grid;
+  flex: 1 1 0;
+  place-items: center;
+  min-width: 0;
+  aspect-ratio: 220 / 160;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sitio:focus-visible {
+  outline: 3px solid #f1d88e;
+  outline-offset: 6px;
+  border-radius: 48%;
+}
+
+.monticulo {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  overflow: visible;
+  filter: drop-shadow(0 13px 8px #211a15aa);
+  transition: transform 140ms ease, filter 140ms ease;
+}
+
+.tierra {
+  fill: var(--color-tierra, #805638);
+  stroke: #38281f;
+  stroke-width: 5;
+  transition: fill 180ms ease;
+}
+
+.sitio.rojizo {
+  --color-tierra: #975747;
+}
+
+.sitio:not(.excavado):hover .monticulo {
+  filter: brightness(1.12) drop-shadow(0 15px 9px #211a15bb);
+  transform: translateY(-5px);
+}
+
+.hallazgo {
+  position: absolute;
+  display: none;
+  width: 48%;
+  height: 62%;
+  overflow: visible;
+  filter: drop-shadow(0 6px 5px #1e1713aa);
+  pointer-events: none;
+}
+
+.hallazgo.piedra path:first-child {
+  fill: #737b7c;
+  stroke: #42494a;
+  stroke-width: 5;
+}
+
+.hallazgo.tesoro path:first-child {
+  fill: #e6aa36;
+  stroke: #805321;
+  stroke-width: 4;
+}
+
+.hallazgo.tesoro .cofre-tapa {
+  fill: #bd7624;
+  stroke: #70451f;
+  stroke-width: 4;
+}
+
+.hallazgo.tesoro .cofre-cuerpo {
+  fill: #e9af3d;
+  stroke: #805321;
+  stroke-width: 4;
+}
+
+.hallazgo.tesoro .cofre-metal {
+  fill: #f5d875;
+  stroke: #a77728;
+  stroke-width: 2;
+}
+
+.hallazgo.tesoro .cofre-cerradura {
+  fill: #77502b;
+  stroke: #51381f;
+  stroke-width: 2;
+}
+
+.hallazgo.tesoro .moneda {
+  fill: #f6d46e;
+  stroke: #996324;
+  stroke-width: 3;
+}
+
+.sitio.excavado .monticulo {
+  display: none;
+}
+
+.sitio.excavado .hallazgo.activo {
+  display: block;
+  animation: revelar-hallazgo 240ms ease-out both;
+}
+
+.pala-rota {
+  position: absolute;
+  right: 7vw;
+  bottom: 10%;
+  z-index: 4;
+  display: none;
+  width: clamp(110px, 14vw, 180px);
+  height: auto;
+  filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 12px #f4d18c) drop-shadow(0 9px 7px #17120f);
+  pointer-events: none;
+}
+
+.pala-rota.visible {
+  display: block;
+  animation: revelar-hallazgo 220ms ease-out both;
+}
+
+#mostrarmicrojuego,
+#Perder {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+#mostrarmicrojuego {
+  display: block;
+}
+
+#Ganar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+#Texto {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  z-index: 1200;
+  padding: 1rem 2rem;
+  transform: translate(-50%, -50%);
+  background: bisque;
+  color: #8527d1;
+  font-size: clamp(2rem, 6vw, 60px);
+  text-align: center;
+  white-space: nowrap;
+}
+
+@keyframes revelar-hallazgo {
+  from { opacity: 0; transform: translateY(10px) scale(.8); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 600px) {
+  .excavaciones {
+    top: 50%;
+    width: 94vw;
+    gap: 3vw;
+  }
+
+  .suelo {
+    height: 62%;
+  }
+
+  #Texto {
+    padding: .8rem 1rem;
+    font-size: clamp(1.5rem, 7vw, 2.4rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .monticulo,
+  .tierra {
+    transition: none;
+  }
+
+  .sitio.excavado .hallazgo.activo,
+  .pala-rota.visible {
+    animation: none;
+  }
+}

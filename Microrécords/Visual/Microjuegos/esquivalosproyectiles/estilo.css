@@ -1,0 +1,192 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background-color: #20232a;
+}
+
+.zona-juego {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+.zona-juego::before,
+.zona-juego::after {
+  position: absolute;
+  left: 5vw;
+  z-index: 1;
+  width: 90vw;
+  border-top: 2px dashed rgba(255, 255, 255, 0.35);
+  content: "";
+  pointer-events: none;
+}
+
+.zona-juego::before {
+  top: 33.3333%;
+}
+
+.zona-juego::after {
+  top: 66.6667%;
+}
+
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.precaucion {
+  position: fixed;
+  z-index: 3;
+  display: none;
+  width: clamp(42px, 7vw, 64px);
+  height: clamp(40px, 6.5vw, 60px);
+  transform: translateY(-50%);
+}
+
+.precaucion.visible {
+  display: block;
+  animation: aparecer 180ms ease-out;
+}
+
+.precaucion.izquierda {
+  left: 6vw;
+}
+
+.precaucion.derecha {
+  right: 6vw;
+}
+
+.precaucion.arriba {
+  top: 16.6667%;
+}
+
+.precaucion.centro {
+  top: 50%;
+}
+
+.precaucion.abajo {
+  top: 83.3333%;
+}
+
+.precaucion svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: #ffd21f;
+  filter: drop-shadow(0 0 12px #ffd21f99);
+}
+
+.precaucion svg path + path {
+  fill: none;
+  stroke: #332a0b;
+  stroke-linecap: round;
+  stroke-width: 4;
+}
+
+.proyectil {
+  position: fixed;
+  z-index: 2;
+  width: 100px;
+  height: 12px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #fff, #ff553d 40%, #ff9a45);
+  box-shadow: 0 0 18px 5px #ff563d99;
+  animation-duration: 720ms;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+.proyectil.arriba {
+  top: 16.6667%;
+}
+
+.proyectil.centro {
+  top: 50%;
+}
+
+.proyectil.abajo {
+  top: 83.3333%;
+}
+
+.proyectil.izquierda {
+  left: -110px;
+  animation-name: disparo-izquierda;
+}
+
+.proyectil.derecha {
+  right: -110px;
+  animation-name: disparo-derecha;
+}
+
+#mostrarmicrojuego,
+#Perder {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+#mostrarmicrojuego {
+  display: block;
+}
+
+#Ganar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+#Texto {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  z-index: 1200;
+  padding: 1rem 2rem;
+  transform: translate(-50%, -50%);
+  background: bisque;
+  color: #8527d1;
+  font-size: 60px;
+  text-align: center;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; scale: .7; }
+  to { opacity: 1; scale: 1; }
+}
+
+@keyframes disparo-izquierda {
+  to { left: calc(100vw + 110px); }
+}
+
+@keyframes disparo-derecha {
+  to { right: calc(100vw + 110px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .precaucion.visible {
+    animation: none;
+  }
+}

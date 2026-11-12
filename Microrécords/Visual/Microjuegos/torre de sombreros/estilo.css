@@ -1,0 +1,158 @@
+
+body {
+    align-items: center;
+    position: relative; 
+    /* Ocupar toda la ventana */
+    width: 100vw; 
+    height: 100vh;
+    /* Evita barras de desplazamiento si el cuadrado se mueve fuera del borde */
+    overflow: hidden; 
+    /* Estilo de fondo (opcional) */
+    background-color: #20232a; 
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    flex-direction: column; 
+    /* CLAVE 1: Centra horizontalmente los elementos hijos (.sombrero-container, #pato-contenedor, #info) */
+    align-items: center; 
+    /* CLAVE 2: Centra verticalmente los elementos hijos */
+    justify-content: center; 
+    /* 'min-height: 100vh' ya no es necesario si usas 'height: 100vh' para forzar la altura. */
+}
+
+#info {
+    position: absolute;
+    top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    width: 100%;
+}
+
+a {
+    color: white; /* Hace que el texto del enlace sea blanco */
+}
+
+/* --- ESTILOS DEL PATO (Contenedor en la parte inferior) --- */
+#pato-contenedor {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 50px;
+}
+
+/* El cuerpo del pato (Elemento base) */
+.pato {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    background-color: #FFD700;
+    border-radius: 50%;
+}
+
+/* La cabeza del pato (Pseudo-elemento) */
+.pato::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: 10px;
+    width: 100px;
+    height: 100px;
+    background-color: #FFD700;
+    border-radius: 50%;
+}
+
+.sombrero-container {
+    /* Define un tamaño para que los sombreros tengan un área donde posicionarse */
+    width: 500px; /* Ejemplo de ancho */
+    height: 150px; /* Ejemplo de alto */
+    /* Asegura que el contenedor de sombreros esté centrado horizontalmente */
+    margin-left: auto;
+    margin-right: auto;
+    /* Da espacio entre el pato y los sombreros */
+    margin-top: 50px; 
+    position: relative; /* Clave para el posicionamiento relativo de los sombreros iniciales */
+}
+
+.sombrero {
+    position: absolute; 
+    cursor: grab;
+    z-index: 10;
+    transition: none; 
+}
+
+/* Sombrero #1: Cuadrado Rojo */
+.sombrero-rojo {
+    width: 80px;
+    height: 80px;
+    background-color: #ff5252;
+    top: 50px; 
+    top: 50px; 
+    left: 50px; 
+}
+
+/* Sombrero #2: Círculo Azul */
+.sombrero-azul {
+    width: 100px;
+    height: 30px;
+    background-color: #448aff;
+    border-radius: 50% / 10px;
+    top: 70px;
+    left: 200px; /* Centrado dentro de .sombrero-container */
+}
+
+/* Sombrero #3: Triángulo Verde */
+.sombrero-verde {
+    width: 90px;
+    height: 90px;
+    background-color: #69f0ae;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    top: 30px;
+    left: 380px; /* Posición inicial en el borde derecho de .sombrero-container */
+}
+
+#mostrarmicrojuego,
+#Perder {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 1000;
+}
+
+#Ganar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 1000;
+}
+
+#Texto {
+    position: absolute; /* Posicionamiento relativo al contenedor */
+    top: 80%;           /* Centrado vertical */
+    left: 50%;          /* Centrado horizontal */
+    transform: translate(-50%, -50%); /* Ajuste fino para centrar exactamente */
+    color: #8527d1;       /* Color del texto */
+    font-size: 60px;    /* Tamaño de la letra */
+    z-index: 1200;
+    background-color: bisque;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+#mostrarmicrojuego {
+    display: block;
+}
+
+#Texto {
+    z-index: 1200;
+}

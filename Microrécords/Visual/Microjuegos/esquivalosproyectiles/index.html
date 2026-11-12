@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Esquiva los proyectiles!</title>
+  <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="../Global/temporizador.css?v=5">
+</head>
+<body>
+  <main id="zona-juego" class="zona-juego">
+    <div id="precauciones" aria-live="polite">
+      <div class="precaucion" aria-label="Zona de peligro">
+        <svg viewBox="0 0 48 44" role="img" aria-hidden="true">
+          <path d="M24 2 46 41H2Z"/>
+          <path d="M24 14v13m0 7v1"/>
+        </svg>
+      </div>
+      <div class="precaucion" aria-label="Zona de peligro">
+        <svg viewBox="0 0 48 44" role="img" aria-hidden="true">
+          <path d="M24 2 46 41H2Z"/>
+          <path d="M24 14v13m0 7v1"/>
+        </svg>
+      </div>
+    </div>
+    <div id="proyectiles" aria-hidden="true"></div>
+    <p id="estado" class="solo-lectores" role="status"></p>
+  </main>
+  <div class="Contienevideo">
+    <video id="mostrarmicrojuego" src="../../../Recursos/Microjuegos/Global/streve%20corriendo.mp4" autoplay muted playsinline></video>
+    <div id="Texto">¡Esquiva los proyectiles!</div>
+  </div>
+  <video id="Perder" src="../../../Recursos/Microjuegos/Global/streve%20tropezando.mp4" muted playsinline></video>
+  <img id="Ganar" src="../../../Recursos/Microjuegos/Global/confetti-25%20(1).jpg" alt="¡Ganaste!">
+  <div id="temporizador-mecha" class="temporizador-mecha" role="img" aria-label="Reloj del tiempo de juego">
+    <div class="mecha">
+      <span class="tramo-mecha tramo-1"></span>
+      <span class="tramo-mecha tramo-2"></span>
+      <span class="tramo-mecha tramo-3"></span>
+    </div>
+    <div class="reloj">
+      <span class="manecilla manecilla-minuto"></span>
+      <span class="manecilla manecilla-segundo"></span>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

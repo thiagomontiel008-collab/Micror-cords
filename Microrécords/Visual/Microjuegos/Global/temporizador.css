@@ -1,0 +1,119 @@
+.temporizador-mecha {
+  position: fixed;
+  bottom: max(14px, env(safe-area-inset-bottom));
+  left: 50%;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  width: 220px;
+  height: 54px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.temporizador-mecha[hidden] {
+  display: none;
+}
+
+.mecha {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 1;
+  padding-right: 7px;
+}
+
+.tramo-mecha {
+  display: block;
+  flex: 1;
+  height: 6px;
+  border-radius: 6px;
+  background-color: #777e88;
+  transition: background-color 180ms ease;
+}
+
+.fase-1 .tramo-1,
+.fase-2 .tramo-1,
+.fase-2 .tramo-2,
+.fase-3 .tramo-1,
+.fase-3 .tramo-2,
+.fase-3 .tramo-3 {
+  background-color: #ffd166;
+}
+
+.reloj {
+  position: relative;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  box-sizing: border-box;
+  border: 4px solid #c5cad3;
+  border-radius: 50%;
+  background-color: #303946;
+  transition: border-color 180ms ease, background-color 180ms ease;
+}
+
+.reloj::before,
+.reloj::after {
+  position: absolute;
+  top: -8px;
+  width: 5px;
+  height: 7px;
+  border-radius: 3px;
+  background-color: #c5cad3;
+  content: "";
+}
+
+.reloj::before {
+  left: 7px;
+}
+
+.reloj::after {
+  right: 7px;
+}
+
+.manecilla {
+  position: absolute;
+  bottom: 50%;
+  left: calc(50% - 1px);
+  width: 3px;
+  border-radius: 3px;
+  background-color: #61dafb;
+  transform-origin: center bottom;
+}
+
+.manecilla-minuto {
+  height: 13px;
+  transform: rotate(0deg);
+}
+
+.manecilla-segundo {
+  height: 17px;
+  transform: rotate(125deg);
+}
+
+.activado .reloj {
+  border-color: #ffd166;
+  background-color: #57412c;
+  animation: activar-reloj 220ms ease-in-out 2 alternate;
+}
+
+.activado .reloj::before,
+.activado .reloj::after {
+  background-color: #ffd166;
+}
+
+@keyframes activar-reloj {
+  to { transform: scale(1.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tramo-mecha,
+  .reloj {
+    transition: none;
+  }
+
+  .activado .reloj {
+    animation: none;
+  }
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariposa</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="../Global/temporizador.css?v=5">
+</head>
+<body>
+    <p id="info"></p>
+
+    <div class="Contienevideo">
+        <video id="mostrarmicrojuego" src="../../../Recursos/Microjuegos/Global/streve%20corriendo.mp4" autoplay muted playsinline></video>
+        <div id="Texto">¡Atrapa la mariposa!</div>
+    </div>
+    <video id="Perder" src="../../../Recursos/Microjuegos/Global/streve%20tropezando.mp4" muted playsinline></video>
+    <img id="Ganar" src="../../../Recursos/Microjuegos/Global/confetti-25%20(1).jpg" alt="¡Ganaste!">
+    <div id="temporizador-mecha" class="temporizador-mecha" role="img" aria-label="Reloj del tiempo de juego">
+        <div class="mecha">
+            <span class="tramo-mecha tramo-1"></span>
+            <span class="tramo-mecha tramo-2"></span>
+            <span class="tramo-mecha tramo-3"></span>
+        </div>
+        <div class="reloj">
+            <span class="manecilla manecilla-minuto"></span>
+            <span class="manecilla manecilla-segundo"></span>
+        </div>
+    </div>
+    <script src="script.js?v=5"></script>
+</body>
+</html>
